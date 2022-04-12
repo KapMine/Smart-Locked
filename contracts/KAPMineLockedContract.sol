@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "./Ownable.sol";
 import "./IERC20.sol";
 
-contract TimeLockedKAPContract is Ownable {
+contract KAPMineLockedContract is Ownable {
 
   uint256 private _totalSupply;
   uint256 private _lockedSupply;
@@ -19,7 +19,7 @@ contract TimeLockedKAPContract is Ownable {
   event PutTokens(address indexed owner, uint256 value);
 
   function putTokensToTimeLock(address account, uint256 amount, uint256 timestamp) public virtual onlyOwner {
-    require(_lockedSupply + amount <= totalSupply(), "Not enought tokens on TimeLockedGMTContract");
+    require(_lockedSupply + amount <= totalSupply(), "Not enought tokens on KAPMineLockedContract");
     _balances[account] += amount;
     _timestamps[account].push(timestamp);
     _purchases[account].push(amount);
