@@ -48,7 +48,6 @@ contract KAPMineLockedContract is Ownable {
     return valueToExtract;
   }
 
-
   function totalSupply() public view virtual returns (uint256) {
     return _token.balanceOf(address(this));
   }
